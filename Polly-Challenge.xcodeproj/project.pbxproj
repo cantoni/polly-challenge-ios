@@ -9,28 +9,30 @@
 /* Begin PBXBuildFile section */
 		0C80024C1F8416D8009C52DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80024B1F8416D8009C52DD /* AppDelegate.swift */; };
 		0C80024E1F8416D8009C52DD /* PLYController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C80024D1F8416D8009C52DD /* PLYController.swift */; };
-		0C8002531F8416D8009C52DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C8002521F8416D8009C52DD /* Assets.xcassets */; };
-		0C8002561F8416D8009C52DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C8002541F8416D8009C52DD /* LaunchScreen.storyboard */; };
 		0C8002621F84182C009C52DD /* PLYUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8002611F84182C009C52DD /* PLYUser.swift */; };
 		0C8002651F842515009C52DD /* PLYFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8002641F842515009C52DD /* PLYFriendsController.swift */; };
 		0C8002681F843472009C52DD /* PLYManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8002671F843472009C52DD /* PLYManager.swift */; };
 		8526C6D908CD2E50DA733AFB /* Pods_polly_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDA1BDF321D9D23ED0BD2F8 /* Pods_polly_challenge.framework */; };
+		C472B9031F99417800AFDCA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C472B9021F99417800AFDCA8 /* Assets.xcassets */; };
+		C472B9051F99417F00AFDCA8 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C472B9041F99417E00AFDCA8 /* ProximaNova-Semibold.otf */; };
+		C472B9071F99418500AFDCA8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C472B9061F99418500AFDCA8 /* Info.plist */; };
+		C472B90A1F99419100AFDCA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C472B9081F99419100AFDCA8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C8002481F8416D8009C52DD /* polly-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "polly-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C80024B1F8416D8009C52DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C80024D1F8416D8009C52DD /* PLYController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLYController.swift; sourceTree = "<group>"; };
-		0C8002521F8416D8009C52DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../Polly-Challenge/Assets.xcassets"; sourceTree = "<group>"; };
-		0C8002551F8416D8009C52DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C8002611F84182C009C52DD /* PLYUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLYUser.swift; sourceTree = "<group>"; };
-		0C8002631F8420F6009C52DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		0C8002641F842515009C52DD /* PLYFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLYFriendsController.swift; sourceTree = "<group>"; };
 		0C8002671F843472009C52DD /* PLYManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLYManager.swift; sourceTree = "<group>"; };
-		0C8002691F843819009C52DD /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Semibold.otf"; path = "../../Polly-Challenge/ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		6DA9136D462B37A283CB5BD8 /* Pods-polly-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-polly-challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-polly-challenge/Pods-polly-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		7FDA1BDF321D9D23ED0BD2F8 /* Pods_polly_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_polly_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF845047F8ECA59DE60633CF /* Pods-polly-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-polly-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-polly-challenge/Pods-polly-challenge.release.xcconfig"; sourceTree = "<group>"; };
+		C472B9021F99417800AFDCA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Polly-Challenge/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		C472B9041F99417E00AFDCA8 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Semibold.otf"; path = "polly-challenge/New Group/ProximaNova-Semibold.otf"; sourceTree = SOURCE_ROOT; };
+		C472B9061F99418500AFDCA8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "polly-challenge/New Group/Info.plist"; sourceTree = SOURCE_ROOT; };
+		C472B9091F99419100AFDCA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Polly-Challenge/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,8 @@
 			children = (
 				0C80026A1F84385F009C52DD /* Your Code ↙️ */,
 				0C80025F1F841806009C52DD /* Boilerplate */,
-				0C80025E1F8416EF009C52DD /* Resources */,
+				C472B9021F99417800AFDCA8 /* Assets.xcassets */,
+				C472B90B1F9941C400AFDCA8 /* Resources */,
 			);
 			path = "polly-challenge";
 			sourceTree = "<group>";
@@ -87,17 +90,6 @@
 				0C80024D1F8416D8009C52DD /* PLYController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		0C80025E1F8416EF009C52DD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				0C8002691F843819009C52DD /* ProximaNova-Semibold.otf */,
-				0C8002521F8416D8009C52DD /* Assets.xcassets */,
-				0C8002541F8416D8009C52DD /* LaunchScreen.storyboard */,
-				0C8002631F8420F6009C52DD /* Info.plist */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		0C80025F1F841806009C52DD /* Boilerplate */ = {
@@ -142,6 +134,16 @@
 				AF845047F8ECA59DE60633CF /* Pods-polly-challenge.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C472B90B1F9941C400AFDCA8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C472B9041F99417E00AFDCA8 /* ProximaNova-Semibold.otf */,
+				C472B9061F99418500AFDCA8 /* Info.plist */,
+				C472B9081F99419100AFDCA8 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +208,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C8002561F8416D8009C52DD /* LaunchScreen.storyboard in Resources */,
-				0C8002531F8416D8009C52DD /* Assets.xcassets in Resources */,
+				C472B9031F99417800AFDCA8 /* Assets.xcassets in Resources */,
+				C472B90A1F99419100AFDCA8 /* LaunchScreen.storyboard in Resources */,
+				C472B9071F99418500AFDCA8 /* Info.plist in Resources */,
+				C472B9051F99417F00AFDCA8 /* ProximaNova-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,13 +287,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0C8002541F8416D8009C52DD /* LaunchScreen.storyboard */ = {
+		C472B9081F99419100AFDCA8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0C8002551F8416D8009C52DD /* Base */,
+				C472B9091F99419100AFDCA8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = "../../Polly-Challenge";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
