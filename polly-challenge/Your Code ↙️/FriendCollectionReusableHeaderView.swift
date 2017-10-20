@@ -19,7 +19,7 @@ class FriendCollectionReusableHeaderView: UICollectionReusableView {
 
         let titleLabel = UILabel()
         titleLabel.text = "Quick Adds"
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = UIColor(red: 78/255, green: 72/255, blue: 104/255, alpha: 1.0)
         titleLabel.font = PollyFonts.semiBold.font(withSize: 16.0)
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) -> Void in
