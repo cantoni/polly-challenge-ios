@@ -77,9 +77,9 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         collectionView?.clipsToBounds = false
         collectionView?.layer.masksToBounds = false
 
-//        collectionView?.alwaysBounceVertical = true
-//        collectionView?.addSubview(refresher)
-//        refresher.addTarget(self, action: #selector(refreshUsers), for: .valueChanged)
+        collectionView?.alwaysBounceVertical = true
+        collectionView?.addSubview(refresher)
+        refresher.addTarget(self, action: #selector(refreshUsers), for: .valueChanged)
 
         if let collection = collectionView {
             cardView.addSubview(collection)
