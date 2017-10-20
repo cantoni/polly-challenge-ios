@@ -16,6 +16,11 @@
 		0C8002681F843472009C52DD /* PLYManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8002671F843472009C52DD /* PLYManager.swift */; };
 		8526C6D908CD2E50DA733AFB /* Pods_polly_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDA1BDF321D9D23ED0BD2F8 /* Pods_polly_challenge.framework */; };
 		C472B90F1F994C3100AFDCA8 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472B90E1F994C3100AFDCA8 /* FriendCollectionViewCell.swift */; };
+		C472B9111F99620200AFDCA8 /* PollyFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472B9101F99620200AFDCA8 /* PollyFonts.swift */; };
+		C472B9131F99631200AFDCA8 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C472B9121F99631200AFDCA8 /* ProximaNova-Semibold.otf */; };
+		C472B9151F99636800AFDCA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C472B9141F99636800AFDCA8 /* Assets.xcassets */; };
+		C472B9171F99692000AFDCA8 /* FriendCollectionReusableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472B9161F99692000AFDCA8 /* FriendCollectionReusableHeaderView.swift */; };
+		C472B9191F99807E00AFDCA8 /* ColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472B9181F99807E00AFDCA8 /* ColorImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,11 @@
 		7FDA1BDF321D9D23ED0BD2F8 /* Pods_polly_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_polly_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF845047F8ECA59DE60633CF /* Pods-polly-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-polly-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-polly-challenge/Pods-polly-challenge.release.xcconfig"; sourceTree = "<group>"; };
 		C472B90E1F994C3100AFDCA8 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
+		C472B9101F99620200AFDCA8 /* PollyFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollyFonts.swift; sourceTree = "<group>"; };
+		C472B9121F99631200AFDCA8 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Semibold.otf"; path = "Polly-Challenge/ProximaNova-Semibold.otf"; sourceTree = SOURCE_ROOT; };
+		C472B9141F99636800AFDCA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Polly-Challenge/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		C472B9161F99692000AFDCA8 /* FriendCollectionReusableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionReusableHeaderView.swift; sourceTree = "<group>"; };
+		C472B9181F99807E00AFDCA8 /* ColorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,8 @@
 				0C8002661F843462009C52DD /* Managers */,
 				0C8002601F84180D009C52DD /* Models */,
 				0C80025D1F8416E0009C52DD /* Controllers */,
+				C472B9121F99631200AFDCA8 /* ProximaNova-Semibold.otf */,
+				C472B9141F99636800AFDCA8 /* Assets.xcassets */,
 			);
 			path = Boilerplate;
 			sourceTree = "<group>";
@@ -134,6 +146,9 @@
 			children = (
 				0C8002641F842515009C52DD /* PLYFriendsController.swift */,
 				C472B90E1F994C3100AFDCA8 /* FriendCollectionViewCell.swift */,
+				C472B9161F99692000AFDCA8 /* FriendCollectionReusableHeaderView.swift */,
+				C472B9101F99620200AFDCA8 /* PollyFonts.swift */,
+				C472B9181F99807E00AFDCA8 /* ColorImage.swift */,
 			);
 			path = "Your Code ↙️";
 			sourceTree = "<group>";
@@ -210,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C8002561F8416D8009C52DD /* LaunchScreen.storyboard in Resources */,
+				C472B9131F99631200AFDCA8 /* ProximaNova-Semibold.otf in Resources */,
+				C472B9151F99636800AFDCA8 /* Assets.xcassets in Resources */,
 				0C8002531F8416D8009C52DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,9 +295,12 @@
 				C472B90F1F994C3100AFDCA8 /* FriendCollectionViewCell.swift in Sources */,
 				0C8002621F84182C009C52DD /* PLYUser.swift in Sources */,
 				0C8002651F842515009C52DD /* PLYFriendsController.swift in Sources */,
+				C472B9171F99692000AFDCA8 /* FriendCollectionReusableHeaderView.swift in Sources */,
 				0C80024E1F8416D8009C52DD /* PLYController.swift in Sources */,
+				C472B9111F99620200AFDCA8 /* PollyFonts.swift in Sources */,
 				0C80024C1F8416D8009C52DD /* AppDelegate.swift in Sources */,
 				0C8002681F843472009C52DD /* PLYManager.swift in Sources */,
+				C472B9191F99807E00AFDCA8 /* ColorImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

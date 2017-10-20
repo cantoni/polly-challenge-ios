@@ -19,6 +19,7 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
     fileprivate var usersInContacts: [PLYUser] = []
 
     private let friendCellIdentifier = "friendCellIdentifier"
+    private let friendHeaderIdentifier = "friendHeaderIdentifier"
     private let flowLayout = UICollectionViewFlowLayout()
     private var collectionView: UICollectionView?
 
@@ -57,17 +58,16 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
          */
 
         flowLayout.minimumLineSpacing = 0
-        flowLayout.itemSize = CGSize(width: cardView.frame.width, height: 60.0)
+        flowLayout.itemSize = CGSize(width: cardView.frame.width-32, height: 60.0)
+//        flowLayout.headerReferenceSize = CGSize(width: cardView.frame.width, height: 60.0)
 
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView?.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: friendCellIdentifier)
+        collectionView?.register(FriendCollectionReusableHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: friendHeaderIdentifier)
         collectionView?.delegate = self
         collectionView?.dataSource = self
 
-//        collectionView?.isPrefetchingEnabled = false
-
-        cardView.backgroundColor = UIColor.magenta
-        collectionView?.backgroundColor = UIColor.green
+        collectionView?.backgroundColor = UIColor(red: 237/255, green: 241/255, blue: 242/255, alpha: 1.0)
 
         if let collection = collectionView {
             cardView.addSubview(collection)
@@ -79,8 +79,6 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
                 make.right.equalTo(cardView).offset(0)
             }
         }
-
-
     }
 
     //-----------------------------------
@@ -98,6 +96,7 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         print("We're refreshing")
 
         // Update the view here
+        collectionView?.reloadData()
     }
 
     //-----------------------------------
@@ -116,21 +115,10 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
-
-        var sections: Int = 0
-        if (usersToAdd.count > 0) {
-            sections += 1
-        }
-        if (usersInContacts.count > 0) {
-            sections += 1
-        }
-        return sections
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-
-        if section == 0 && usersToAdd.count > 0 {
+        if section == 0 {
             return usersToAdd.count
         } else {
             return usersInContacts.count
@@ -143,21 +131,58 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         }
 
         var friendType = FriendType.QuickAdd
-        if indexPath.section == 1 {
+        var user: PLYUser?
+        if indexPath.section == 0 {
+            user = usersToAdd[indexPath.row]
+        } else {
             friendType = FriendType.Contacts
+            user = usersInContacts[indexPath.row]
         }
 
-        // Configure the cell
-        let user = PLYUser()
-        cell.configure(user: user, type: friendType)
+        if let user = user {
+            cell.configure(user: user, friendType: friendType)
+        }
 
-        let bcolor = UIColor( red: 0.2, green: 0.2, blue:0.2, alpha: 0.3 )
-
-        cell.layer.borderColor = bcolor.cgColor
-        cell.layer.borderWidth = 0.5
-        cell.layer.cornerRadius = 3
+        if indexPath.row == 0 {
+            roundView(view: cell.contentView, corners: [UIRectCorner.topLeft, UIRectCorner.topRight])
+        }
 
         return cell
+    }
+
+    func roundView(view: UIView, corners: UIRectCorner) {
+        let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 13.0, height: 13.0))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = view.bounds
+        maskLayer.path = maskPath.cgPath
+        view.layer.mask = maskLayer
+    }
+
+//    - (void)roundView:(UIView *)view onCorner:(UIRectCorner)rectCorner radius:(float)radius {
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:rectCorner cornerRadii:CGSizeMake(radius, radius)];
+//    CAShapeLayer *maskLayer = [CAShapeLayer new];
+//    maskLayer.frame = view.bounds;
+//    maskLayer.path = maskPath.CGPath;
+//    [view.layer setMask:maskLayer];
+//    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: friendHeaderIdentifier, for: indexPath)
+        if let myHeader = headerView as? FriendCollectionReusableHeaderView {
+            if indexPath.section == 0 {
+                myHeader.configure(title: "Quick Adds")
+            } else {
+                myHeader.configure(title: "In Your Contacts")
+            }
+        }
+        return headerView
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+        // TODO: hide header if section has no items
+
+        return CGSize(width: cardView.frame.width, height: 48.0)
     }
 
     //-----------------------------------
