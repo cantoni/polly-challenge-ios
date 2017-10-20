@@ -14,12 +14,12 @@ enum FriendType {
 
 class FriendCollectionViewCell: UICollectionViewCell {
 
-    let avatarImageView = UIImageView()
-    let nameLabel = UILabel()
-    let phoneNumberLabel = UILabel()
-    let namePhoneStackView = UIStackView()
-    let button = UIButton()
-    let hairline = UIView()
+    private let avatarImageView = UIImageView()
+    private let nameLabel = UILabel()
+    private let phoneNumberLabel = UILabel()
+    private let namePhoneStackView = UIStackView()
+    private let button = UIButton()
+    private let hairline = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -107,13 +107,14 @@ class FriendCollectionViewCell: UICollectionViewCell {
     private func configureButtonForType(friendType: FriendType) {
         let buttonImage = UIImage(named: "AddIcon")
 
-        if friendType == .QuickAdd {
+        switch friendType {
+        case .QuickAdd:
             button.setTitle("Add", for: .normal)
             button.backgroundColor = UIColor(red: 14/255, green: 173/255, blue: 255/255, alpha: 1.0)
             button.setTitleColor(UIColor.white, for: .normal)
             button.layer.borderWidth = 0.0
             button.setImage(buttonImage, for: .normal)
-        } else {
+        case .Contacts:
             button.setTitle("Invite", for: .normal)
             button.backgroundColor = UIColor.white
             let inviteColor = UIColor(red: 190/255, green: 196/255, blue: 200/255, alpha: 1.0)

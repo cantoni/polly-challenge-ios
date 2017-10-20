@@ -18,12 +18,12 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
     fileprivate var usersToAdd: [PLYUser] = []
     fileprivate var usersInContacts: [PLYUser] = []
 
-    private let friendCellIdentifier = "friendCellIdentifier"
-    private let friendHeaderIdentifier = "friendHeaderIdentifier"
     private let flowLayout = UICollectionViewFlowLayout()
     private var collectionView: UICollectionView?
-
     private let refresher = UIRefreshControl()
+
+    private let friendCellIdentifier = "friendCellIdentifier"
+    private let friendHeaderIdentifier = "friendHeaderIdentifier"
 
     //-----------------------------------
     // MARK: - View Lifecycle
@@ -32,8 +32,6 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         // Super
         super.viewDidLoad()
-
-        // Register cell classes
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -74,8 +72,6 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         collectionView?.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
         collectionView?.layer.shadowOpacity = 0.05
         collectionView?.layer.shadowRadius = 10.0
-        collectionView?.clipsToBounds = false
-        collectionView?.layer.masksToBounds = false
 
         collectionView?.alwaysBounceVertical = true
         collectionView?.addSubview(refresher)
@@ -106,8 +102,8 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         usersInContacts = PLYManager.shared.invites()
 
         // Update the view here
-        refresher.endRefreshing()
         collectionView?.reloadData()
+        refresher.endRefreshing()
     }
 
     //-----------------------------------
@@ -138,12 +134,13 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: friendCellIdentifier, for: indexPath) as? FriendCollectionViewCell else {
-            fatalError("Error: cell with identifier not found")
+            fatalError("Error: cell not dequeued properly")
         }
 
         var friendType = FriendType.QuickAdd
         var user: PLYUser?
         var roundBottomCorners = false
+
         if indexPath.section == 0 {
             user = usersToAdd[indexPath.row]
             if indexPath.row == usersToAdd.count-1 {
