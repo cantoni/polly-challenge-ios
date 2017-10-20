@@ -59,6 +59,8 @@ class FriendCollectionViewCell: UICollectionViewCell {
 
         nameLabel.font = PollyFonts.semiBold.font(withSize: 20.0)
         nameLabel.textColor = UIColor(red: 78/255, green: 72/255, blue: 104/255, alpha: 1.0)
+        nameLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.minimumScaleFactor = 0.5
         phoneNumberLabel.font = PollyFonts.semiBold.font(withSize: 12.0)
         phoneNumberLabel.textColor = UIColor(red: 190/255, green: 196/255, blue: 200/255, alpha: 1.0)
 
@@ -70,7 +72,7 @@ class FriendCollectionViewCell: UICollectionViewCell {
         namePhoneStackView.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(avatarImageView.snp.trailing).offset(16.0)
             make.centerY.equalTo(contentView)
-            make.trailing.equalTo(button.snp.leading).offset(16.0)
+            make.trailing.equalTo(button.snp.leading).offset(-16.0)
         }
     }
 
@@ -86,9 +88,7 @@ class FriendCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(user: PLYUser, friendType: FriendType) {
-        if let avatar = user.avatar {
-            avatarImageView.image = avatar
-        }
+        avatarImageView.image = user.avatar
 
         if let firstName = user.firstName, let lastName = user.lastName {
             nameLabel.text = firstName + " " + lastName
