@@ -59,24 +59,30 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
 
         flowLayout.minimumLineSpacing = 0
         flowLayout.itemSize = CGSize(width: cardView.frame.width-32, height: 60.0)
-//        flowLayout.headerReferenceSize = CGSize(width: cardView.frame.width, height: 60.0)
 
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView?.register(FriendCollectionViewCell.self, forCellWithReuseIdentifier: friendCellIdentifier)
         collectionView?.register(FriendCollectionReusableHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: friendHeaderIdentifier)
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        cardView.backgroundColor = UIColor(red: 237/255, green: 241/255, blue: 242/255, alpha: 1.0)
+        collectionView?.backgroundColor = UIColor.clear
 
-        collectionView?.backgroundColor = UIColor(red: 237/255, green: 241/255, blue: 242/255, alpha: 1.0)
+        collectionView?.layer.shadowColor = UIColor.black.cgColor
+        collectionView?.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        collectionView?.layer.shadowOpacity = 0.05
+        collectionView?.layer.shadowRadius = 10.0
+        collectionView?.clipsToBounds = false
+        collectionView?.layer.masksToBounds = false
 
         if let collection = collectionView {
             cardView.addSubview(collection)
 
             collection.snp.makeConstraints { (make) -> Void in
-                make.top.equalTo(cardView).offset(0)
-                make.left.equalTo(cardView).offset(0)
-                make.bottom.equalTo(cardView).offset(0)
-                make.right.equalTo(cardView).offset(0)
+                make.top.equalTo(cardView.snp.top)
+                make.bottom.equalTo(cardView.snp.bottom)
+                make.leading.equalTo(cardView.snp.leading)
+                make.trailing.equalTo(cardView.snp.trailing)
             }
         }
     }
