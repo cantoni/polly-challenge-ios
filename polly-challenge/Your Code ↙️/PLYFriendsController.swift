@@ -132,11 +132,18 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
 
         var friendType = FriendType.QuickAdd
         var user: PLYUser?
+        var roundBottomCorners = false
         if indexPath.section == 0 {
             user = usersToAdd[indexPath.row]
+            if indexPath.row == usersToAdd.count-1 {
+                roundBottomCorners = true
+            }
         } else {
             friendType = FriendType.Contacts
             user = usersInContacts[indexPath.row]
+            if indexPath.row == usersInContacts.count-1 {
+                roundBottomCorners = true
+            }
         }
 
         if let user = user {
@@ -145,6 +152,9 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
 
         if indexPath.row == 0 {
             roundView(view: cell.contentView, corners: [UIRectCorner.topLeft, UIRectCorner.topRight])
+        }
+        if roundBottomCorners == true {
+            roundView(view: cell.contentView, corners: [UIRectCorner.bottomLeft, UIRectCorner.bottomRight])
         }
 
         return cell
