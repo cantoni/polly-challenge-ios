@@ -161,7 +161,7 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
     }
 
     func roundView(view: UIView, corners: UIRectCorner) {
-        let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 13.0, height: 13.0))
+        let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: 12.0, height: 12.0))
         let maskLayer = CAShapeLayer()
         maskLayer.frame = view.bounds
         maskLayer.path = maskPath.cgPath
