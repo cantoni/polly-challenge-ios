@@ -23,6 +23,8 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
     private let flowLayout = UICollectionViewFlowLayout()
     private var collectionView: UICollectionView?
 
+    private let refresher = UIRefreshControl()
+
     //-----------------------------------
     // MARK: - View Lifecycle
     //-----------------------------------
@@ -75,6 +77,10 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         collectionView?.clipsToBounds = false
         collectionView?.layer.masksToBounds = false
 
+//        collectionView?.alwaysBounceVertical = true
+//        collectionView?.addSubview(refresher)
+//        refresher.addTarget(self, action: #selector(refreshUsers), for: .valueChanged)
+
         if let collection = collectionView {
             cardView.addSubview(collection)
 
@@ -91,7 +97,7 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
     // MARK: - Refreshing Data
     //-----------------------------------
 
-    fileprivate func refreshUsers() {
+    @objc fileprivate func refreshUsers() {
 
         /* NOTE: On refresh the number of users for each array may change (Simulating real world updates). Make sure to account for this.*/
 
@@ -99,9 +105,8 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         usersToAdd = PLYManager.shared.quickAdds()
         usersInContacts = PLYManager.shared.invites()
 
-        print("We're refreshing")
-
         // Update the view here
+        refresher.endRefreshing()
         collectionView?.reloadData()
     }
 
@@ -145,7 +150,7 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
                 roundBottomCorners = true
             }
         } else {
-            friendType = FriendType.Contacts
+            friendType = .Contacts
             user = usersInContacts[indexPath.row]
             if indexPath.row == usersInContacts.count-1 {
                 roundBottomCorners = true
@@ -156,11 +161,14 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
             cell.configure(user: user, friendType: friendType)
         }
 
-        if indexPath.row == 0 {
-            roundView(view: cell.contentView, corners: [UIRectCorner.topLeft, UIRectCorner.topRight])
-        }
-        if roundBottomCorners == true {
-            roundView(view: cell.contentView, corners: [UIRectCorner.bottomLeft, UIRectCorner.bottomRight])
+        if roundBottomCorners == true && indexPath.row == 0 {
+            roundView(view: cell.contentView, corners: [.topLeft, .topRight, .bottomRight, .bottomLeft])
+        } else if indexPath.row == 0 {
+            roundView(view: cell.contentView, corners: [.topLeft, .topRight])
+        } else if roundBottomCorners == true {
+            roundView(view: cell.contentView, corners: [.bottomLeft, .bottomRight])
+        } else {
+            cell.contentView.layer.mask = nil
         }
 
         return cell
@@ -173,14 +181,6 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
         maskLayer.path = maskPath.cgPath
         view.layer.mask = maskLayer
     }
-
-//    - (void)roundView:(UIView *)view onCorner:(UIRectCorner)rectCorner radius:(float)radius {
-//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:rectCorner cornerRadii:CGSizeMake(radius, radius)];
-//    CAShapeLayer *maskLayer = [CAShapeLayer new];
-//    maskLayer.frame = view.bounds;
-//    maskLayer.path = maskPath.CGPath;
-//    [view.layer setMask:maskLayer];
-//    }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: friendHeaderIdentifier, for: indexPath)
@@ -196,27 +196,11 @@ class PLYFriendsController: PLYController, UICollectionViewDelegate, UICollectio
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 
-        // TODO: hide header if section has no items
+        if (section == 0 && usersToAdd.count == 0) || (section == 1 && usersInContacts.count == 0) {
+            return CGSize.zero
+        }
 
         return CGSize(width: cardView.frame.width, height: 48.0)
     }
-
-    //-----------------------------------
-    // MARK: - Collection View Delegate
-    //-----------------------------------
-
-    //-----------------------------------
-    // MARK: - Flow layout delegate
-    //-----------------------------------
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        return CGSize(width: collectionView.frame.width, height: 60.0)
-//    }
-
-
-
-
-
 
 }

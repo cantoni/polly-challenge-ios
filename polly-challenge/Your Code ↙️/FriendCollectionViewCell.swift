@@ -37,11 +37,8 @@ class FriendCollectionViewCell: UICollectionViewCell {
         avatarImageView = myImageView
 
         let myButton = UIButton(type: .custom)
-        let buttonImage = UIImage(named: "AddIcon")
-        myButton.setImage(buttonImage, for: .normal)
-        myButton.setTitle("Add", for: .normal)
-        myButton.backgroundColor = UIColor(red: 14/255, green: 173/255, blue: 255/255, alpha: 1.0)
         myButton.titleLabel?.font = PollyFonts.semiBold.font(withSize: 14.0)
+        myButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, -2.0, 0.0, 2.0)
         myButton.layer.cornerRadius = 16.0
         myButton.clipsToBounds = true
         contentView.addSubview(myButton)
@@ -85,10 +82,6 @@ class FriendCollectionViewCell: UICollectionViewCell {
             make.centerY.equalTo(contentView)
             make.trailing.equalTo(myButton.snp.leading).offset(16.0)
         }
-
-        avatarImageView?.image = UIImage(named: "Amy")
-        nameLabel?.text = "Hello world"
-        myPhoneNumberLabel.text = "(555) 555-5555"
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -96,11 +89,13 @@ class FriendCollectionViewCell: UICollectionViewCell {
     }
 
     override func prepareForReuse() {
+        avatarImageView?.image = nil
+        nameLabel?.text = ""
+
         super.prepareForReuse()
     }
 
     func configure(user: PLYUser, friendType: FriendType) {
-
         if let avatar = user.avatar {
             avatarImageView?.image = avatar
         }
@@ -120,7 +115,6 @@ class FriendCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureButtonForType(friendType: FriendType) {
-
         let buttonImage = UIImage(named: "AddIcon")
 
         if friendType == .QuickAdd {
@@ -138,29 +132,5 @@ class FriendCollectionViewCell: UICollectionViewCell {
             button?.layer.borderWidth = 1.0
             button?.setImage(buttonImage?.polly_image(withColor: inviteColor), for: .normal)
         }
-
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
